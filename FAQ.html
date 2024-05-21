@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ NCEE Page</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    width: 90%;
+        height: 570px;
+        background-image: url('');
+        background-size: cover;
+        background-position: center;
+        background-repeat: none;
+}
+
+.faq-card {
+    margin: 20px;
+    padding: 15px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #bebebe,
+                -5px -5px 10px #ffffff;
+    position: relative;
+}
+
+.question {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.answer {
+    display: none;
+    margin-top: 10px;
+}
+
+.toggle {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+<h2 style="text-align: center; ">Frequently Asked Questions (FAQ) for NCEE Exam Website:</h2>
+<div class="faq-card">
+<div class="question">Question 1: What is the NCEE exam?</div>
+    <div class="answer">Answer 1: The National Common Entrance Examination (NCEE) is an entrance examination for admission into Federal Unity Colleges in Nigeria.</div>
+    <span class="toggle">+</span>
+</div>
+
+<div class="faq-card">
+<div class="question">Question 2: How do I register for the NCEE exam?</div>
+    <div class="answer">Answer 2: Registration for the NCEE exam is typically done through designated schools. Consult your school authorities for registration details.</div>
+    <span class="toggle">+</span>
+</div>
+</div>
+<div class="faq-card">
+<div class="question">Question 3: When is the NCEE exam conducted?</div>
+    <div class="answer">Answer 3: The NCEE exam is usually held once a year in April for primary six students seeking admission into Federal Unity Colleges.</div>
+    <span class="toggle">+</span>
+</div>
+</div>
+<div class="faq-card">
+<div class="question">Question 4: How can I access past questions for the NCEE exam?</div>
+    <div class="answer">Answer 4: Past questions for the NCEE exam are available for purchase in bookstores or online platforms. Alternatively, you can check with educational institutions for study materials.</div>
+    <span class="toggle">+</span>
+</div>
+</div>
+<div class="faq-card">
+<div class="question">Question 5: Is there a specific syllabus for the NCEE exam?</div>
+    <div class="answer">Answer 5: Yes, the NCEE exam follows a designated syllabus that covers subjects such as Mathematics, English, Verbal Reasoning, and Quantitative Aptitude.</div>
+    <span class="toggle">+</span>
+</div>
+</div>
+<div class="faq-card">
+<div class="question">Question 6: What is the exam format for the NCEE exam?</div>
+    <div class="answer">Answer 6: The NCEE exam consists of multiple-choice questions covering various subjects to test the aptitude and knowledge of students.</div>
+    <span class="toggle">+</span>
+</div>
+</div>
+<div class="faq-card">
+<div class="question">Question 7: How can I prepare effectively for the NCEE exam?</div>
+    <div class="answer">Answer 7: To prepare for the NCEE exam, we recommend studying past questions, practicing regularly, and seeking guidance from teachers or educational resources.</div>
+    <span class="toggle">+</span>
+</div>
+</div>
+<div class="faq-card">
+<div class="question">Question 8: What are the benefits of attending a Federal Unity College?</div>
+    <div class="answer">Answer 8: Federal Unity Colleges offer a well-rounded education, exposure to diverse cultures, and access to quality facilities and resources for academic growth.</div>
+    <span class="toggle">+</span>
+</div>
+</div>
+<div class="faq-card">
+<div class="question">Question 9: Can I get information about the NCEE exam results online?</div>
+    <div class="answer">Answer 9: You can usually check NCEE exam results through the official website of the National Examinations Council (NECO) or through your educational institution.</div>
+    <span class="toggle">+</span>
+</div>
+</div>
+<div class="faq-card">
+<div class="question">Question 10: Who can I contact for further inquiries about the NCEE exam?</div>
+    <div class="answer">Answer 10: For specific inquiries about the NCEE exam, reach out to the National Examinations Council (NECO) or your school authorities for guidance and assistance.</div>
+    <span class="toggle">+</span>
+</div>
+</div>
+<script>
+  const toggleButtons = document.querySelectorAll('.toggle');
+
+toggleButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const answer = button.previousElementSibling;
+        answer.style.display = (answer.style.display === 'block' ? 'none' : 'block');
+        button.textContent = (button.textContent === '+' ? '-' : '+');
+    });
+});
+
+</script>
+</body>
+</html>
