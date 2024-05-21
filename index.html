@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neumorphic Design Home Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+    .container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+    }
+    nav {
+      position: relative;
+      right: 5%;
+      width: 100%;
+        background-color: #f0f0f0;
+        box-shadow: 7px 7px 14px #d3d3d3, -7px -7px 14px #ffffff;
+        padding: 10px 0;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        display: inline;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    .modal-section {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 99;
+    }
+    
+#subjects {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+    .modal-content {
+        background-color: #f0f0f0;
+        margin: 20% auto;
+        padding: 20px;
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 7px 7px 14px #d3d3d3, -7px -7px 14px #5a5a5a;
+    }
+    #banner {
+        width: 90%;
+        height: 570px;
+        background-image: url('Homepage.png');
+        background-size: cover;
+        background-position: center;
+        margin-top: 20px;
+        border-radius: 20px;
+        box-shadow: 7px 7px 14px #d3d3d3, -7px -7px 14px #ffffff;
+    }
+    #instructions {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+    #takeTestBtn {
+        background-color: #2E2E30;
+        color: white;
+        font-weight: 600;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+        #submitBtn {
+          width: 50%;
+        background-color: #FB9300;
+        color: white;
+        font-weight: 600;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 5px;
+        margin-bottom: 30px;
+    }
+.notification {
+        display: none;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 15px;
+        color: white;
+        font-weight: bold;
+        z-index: 9999; /* Display in front of every element */
+        position: absolute; /* Position the notification */
+        left: 10%;
+    }
+    .green {
+        background-color: #4CAF50;
+    }
+    .red {
+        background-color: #f44336;
+    }
+        #input-modal {
+          position: relative;
+          top: 10%;
+          right: 10%;
+        width: 50%;
+        height: 200px;
+        background-image: url('token.png');
+        background-size: cover;
+        background-position: center;
+        margin-top: 0px;
+        border-radius: 20px;
+        box-shadow: 7px 7px 14px #5a5a5a, -7px -7px 14px #5a5a5a;
+        z-index: 99;
+    }
+   .input-banner{
+     position: relative;
+     top: 90%;
+   } 
+   
+input {
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid #f44336; /* Remove default border */
+    background-color: #ecf0f3; /* Background color */
+    box-shadow: 5px 5px 10px #bfc7d0,  -5px -5px 10px #ffffff; /* Neumorphic effect */
+    transition: box-shadow 0.3s; /* Smooth transition for hover effect */
+}
+
+input:hover {
+    box-shadow: 7px 7px 10px #bfc7d0, 
+                -7px -7px 10px #ffffff; /* Hover effect */
+}
+
+input:active {
+    box-shadow: inset 5px 5px 10px #bfc7d0, 
+                inset -5px -5px 10px #ffffff; /* Active effect */
+}
+.footer {
+    display: ;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    width: 30px;
+    margin: 0 10px;
+    margin-left: 50px;
+    margin-right: 20px;
+    position: relative;
+    right: 20%;
+}
+
+.faq {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+#takeTestBtn{
+  position: relative;
+  top: -240px;
+  left: 25%;
+}
+.background {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    
+}
+
+#subject-modal {
+  position: absolute;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 8px 8px 16px #d1d1d1, -8px -8px 16px #ffffff;
+width: 100%;
+        height: 100vh;
+        background-image: url('sub.png');
+        background-size: cover;
+        background-position: center;
+  
+}
+
+.banner {
+  position: relative;
+  top: 70%;
+  left: 20%;
+  border: 2px solid #fff;
+    width: 50%;
+    border-radius: 50% 0px 0px 50%;
+    margin-bottom: 20px;
+    
+}
+
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    grid-gap: 10px;
+}
+
+.subject-button {
+  position: relative;
+  top: -70px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 4px 4px 8px #000, -2px -2px 4px #d1d1d1;
+    text-decoration: none;
+    width: 50%;
+    color: #333;
+    margin-left: 20px;
+}
+
+.subject-button:hover {
+    background-color: #e0e0e0;
+}
+
+.hidden{
+  display: none; 
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <nav>
+        <ul>
+            <li class="nav-item" data-modal="home">Home</li>
+            <li class="nav-item" data-modal="about">About Us</li>
+            <li class="nav-item" data-modal="services">Services</li>
+            <li class="nav-item" data-modal="subjects">Subjects</li>
+        </ul>
+    </nav>
+<div id="hom" class="modal-sectio hidden">
+    <div class="modal-content">
+        Home modal content
+        <button class="close-btn">Close</button>
+    </div>
+</div>
+<div id="abou" class="modal-sectio hidden">
+    <div class="modal-content">
+        About Us modal content
+        <button class="close-btn">Close</button>
+    </div>
+</div>
+<div id="service" class="modal-sectio hidden">
+    <div class="modal-content">
+        Services modal content
+        <button class="close-btn">Close</button>
+    </div>
+</div>
+<div id="subject" class="modal-sectio hidden">
+    <div class="modal-content" id="subject-modal">
+              <button style="position: absolute; left: 70%;background-color: #Fff; padding: 10px;border: none; border-radius: 20px;"class="close-btn">Close</button>
+        <img src="bk1.png" alt="Banner Image" class="banner">
+        
+        <div class="subject-grid">
+            <a href="subject1.html" class="subject-button">Subject 1</a>
+            <a href="subject2.html" class="subject-button">Subject 2</a>
+            <a href="subject3.html" class="subject-button">Subject 3</a>
+                        <a href="subject3.html" class="subject-button">Subject 3</a>
+            <!-- Add more subject buttons as needed -->
+        </div>
+    </div>
+</div>
+        <div id="notification" class="notification"></div>
+    <div id="banner"></div>
+    <div id="instructions">
+        <h4 style="color:#FB9300;font-weight:700;">Instructions:</h4><p style="text-align:center;width:90%; ">Please click on the <span style="color:#FF5900;font-weight:500; ">Take Mock Button on the banner</span>, then input your token to take the test.</p>
+    </div>
+    <button id="takeTestBtn">Take Mock</button>
+    <div id="testModal" class="modal-section">
+        <div class="modal-content" id="input-modal">
+          <div class="input-banner">
+            <input type="text" id="tokenInput" placeholder="Enter Token">
+            <button id="submitBtn">Submit</button></div>
+        </div>
+        <br>
+    </div>
+</div>
+ <footer class="footer">
+    <div class="footer-content">
+<img src="whatsapp1.svg" alt="WhatsApp" class="icon" id="whatsappIcon">
+<img src="phone1.svg" alt="Phone" class="icon" id="phoneIcon">
+        <a href="FAQ.html" class="faq">FAQ</a>
+    </div>
+</footer> 
+<script>
+    const navItems = document.querySelectorAll('.nav-item');
+    const modalSections = document.querySelectorAll('.modal-section');
+    const takeTestBtn = document.getElementById('takeTestBtn');
+    const testModal = document.getElementById('testModal');
+    const submitBtn = document.getElementById('submitBtn');
+    const tokenInput = document.getElementById('tokenInput');
+    const notification = document.getElementById('notification');
+
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const modalId = item.getAttribute('data-modal');
+            modalSections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(modalId).style.display = 'flex';
+        });
+    });
+
+    takeTestBtn.addEventListener('click', () => {
+        testModal.style.display = 'block';
+    });
+
+    submitBtn.addEventListener('click', () => {
+        const tokens = ['Ncee2024', 'Ncee2025', 'Ncee2026', 'Ncee2027', 'Nceeexclusive'];
+        const userToken = tokenInput.value;
+        if (tokens.includes(userToken)) {
+            notification.textContent = '√ Access granted!:Good Luck 🌟 ';
+            notification.classList.add('green');
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none'; // Hide notification after 2 seconds
+                window.location.href = 'NceeMock.html';
+            }, 3000);
+        } else {
+            notification.textContent = 'Access denied, input given token or Contact Mr. Godson via the call icon for access.';
+            notification.classList.add('red');
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none'; // Hide notification after 2 seconds
+            }, 2000);
+        }
+    });
+
+</script>
+  <script>
+  // Close button functionality
+const closeBtns = document.querySelectorAll('.close-btn');
+closeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        btn.closest('.modal-section').style.display = 'none';
+    });
+});
+
+// Check if user clicks outside the modal section to hide it
+window.addEventListener('click', (e) => {
+    if (e.target.classList.contains('modal-section')) {
+        e.target.style.display = 'none';
+    }
+});  
+</script>
+<script>
+  let prevScrollpos = window.pageYOffset;
+
+window.onscroll = function() {
+    let currentScrollPos = window.pageYOffset;
+    if (currentScrollPos > prevScrollpos) {
+        document.querySelector('.footer').style.display = 'block';
+    } else {
+        document.querySelector('.footer').style.display = 'none';
+    }
+    prevScrollpos = currentScrollPos;
+};
+// WhatsApp icon click event
+document.getElementById('whatsappIcon').addEventListener('click', function() {
+    // Replace 'your_whatsapp_group_link' with your actual WhatsApp group link
+    window.location.href = 'https://chat.whatsapp.com/IdfEEb6nGvHAhN06lZgKaq';
+});
+
+// Phone icon click event
+document.getElementById('phoneIcon').addEventListener('click', function() {
+    // Replace '1234567890' with the phone number you want to dial
+    window.location.href = 'tel:+2348104080147';
+});
+
+</script>
+</body>
+</html>
+
